@@ -19,10 +19,12 @@ return require'packer'.startup(function()
     -- lsp completion stuff
     use {
         'hrsh7th/nvim-compe',
+        config = [[ require'config/compe' ]],
     }
     use {
         'windwp/nvim-autopairs',
-        after = 'nvim-compe',
+        --after = 'nvim-compe',
+        config = [[ require'config/autopairs' ]],
     }
 
 
@@ -30,16 +32,16 @@ return require'packer'.startup(function()
     -- colorscheme
     use {
         'Iron-E/nvim-highlite',
-        config = [[ vim.cmd('colorscheme highlite') ]]
+        config = [[ vim.cmd('colorscheme highlite') ]],
     }
     -- enhanced syntax highlighting
     use {
-        'nvim-treesitter/nvim-treesitter'
+        'nvim-treesitter/nvim-treesitter',
     }
     -- 
     use {
         'norcalli/nvim-colorizer.lua',
-        config = function() require'colorizer'.setup({ '*' }, { names = false }) end,
+        config = [[ require'colorizer'.setup({ '*' }, { names = false }) ]],
     }
 
 
